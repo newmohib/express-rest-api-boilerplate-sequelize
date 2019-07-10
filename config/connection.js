@@ -1,5 +1,5 @@
 const development = {
-  database: 'users',
+  database: 'test',
   username: 'root',
   password: '123456',
   host: 'localhost',

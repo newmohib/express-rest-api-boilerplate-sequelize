@@ -38,9 +38,12 @@ switch (process.env.NODE_ENV) {
     break;
   default:
     database = new Sequelize(
+
       connection.development.database,
       connection.development.username,
-      connection.development.password, {
+      connection.development.password,
+      {
+        //options
         host: connection.development.host,
         dialect: connection.development.dialect,
         pool: {
@@ -48,8 +51,11 @@ switch (process.env.NODE_ENV) {
           min: 0,
           idle: 10000,
         },
-        storage: path.join(process.cwd(), 'db', 'database.sqlite'),
+        timestamps: false,
+
+        //storage: path.join(process.cwd(), 'db', '/usr/local/var/mysql'),
       },
+
     );
 }
 

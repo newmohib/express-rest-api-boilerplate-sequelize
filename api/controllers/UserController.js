@@ -5,13 +5,15 @@ const bcryptService = require('../services/bcrypt.service');
 const UserController = () => {
   const register = async (req, res) => {
     const { body } = req;
+    console.log("body",body);
 
-    if (body.password === body.password2) {
+   // if (body.password === body.password2) {
       try {
         const user = await User.create({
           email: body.email,
           password: body.password,
         });
+        console.log("user",user);
         const token = authService().issue({ id: user.id });
 
         return res.status(200).json({ token, user });
@@ -19,7 +21,7 @@ const UserController = () => {
         console.log(err);
         return res.status(500).json({ msg: 'Internal server error' });
       }
-    }
+  //  }
 
     return res.status(400).json({ msg: 'Bad Request: Passwords don\'t match' });
   };

@@ -9,7 +9,7 @@ const hooks = {
   },
 };
 
-const tableName = 'users';
+const tableName = 'user';
 
 const User = sequelize.define('User', {
   email: {
